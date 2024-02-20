@@ -92,7 +92,7 @@
     "list": [
       {
         "antialiasingMode": "grayscale",
-        "backgroundImage": "C:\\Users\\Zealo\\OneDrive\\Pictures\\wallpaper\\2k-Cute-Ghosts-AI-Generated-4K-Wallpaper.png",
+        "backgroundImage": "C:\\programming\\powershell\\powershell-zp-config\\assets\\ghoul-banner-1920-1080-export.png",
         "backgroundImageOpacity": 0.38,
         "backgroundImageStretchMode": "none",
         "bellStyle": "none",
@@ -107,7 +107,7 @@
         },
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "hidden": false,
-        "icon": "C:\\Users\\Zealo\\OneDrive\\Pictures\\pixel-art\\powershell-icons\\ghoul\\ghoul.png",
+        "icon": "C:\\programming\\powershell\\powershell-zp-config\\assets\\ghoul.png",
         "intenseTextStyle": "all",
         "name": "Ghoul",
         "opacity": 100,
