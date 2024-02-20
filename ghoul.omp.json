@@ -1,0 +1,156 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "version": 2,
+    "final_space": true,
+    "console_title_template": "{{if .Root}}root :: {{end}}{{.Shell}} :: {{.Folder}}",
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "diamond",
+                    "foreground": "#000000",
+                    "background": "#61FFCA",
+                    "leading_diamond": "\ue0c7\u2593"
+                },
+                {
+                    "type": "kubectl",
+                    "style": "powerline",
+                    "foreground": "#000000",
+                    "background": "#61FFCA",
+                    "template": " \udb84\udcfe {{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}} "
+                },
+                {
+                    "type": "az",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#DFAF87",
+                    "template": " \uebd8 {{ .Name }} [ {{ .Origin }} ] ",
+                    "properties": {
+                        "source": "cli"
+                    }
+                },
+                {
+                    "type": "az",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#FFFFDF",
+                    "background": "#012456",
+                    "template": " \uebd8 {{ .Name }} [ {{ .Origin }} ] ",
+                    "properties": {
+                        "source": "pwsh"
+                    }
+                },
+                {
+                    "type": "aws",
+                    "style": "powerline",
+                    "powerline_symbol": "\ue0b0",
+                    "foreground": "#000000",
+                    "background": "#61FFCA",
+                    "template": " \udb83\ude0f {{.Profile}}{{if .Region}}@{{.Region}}{{end}}",
+                    "properties": {
+                        "display_default": true
+                    }
+                }
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "os",
+                    "style": "diamond",
+                    "foreground": "#26C6DA",
+                    "background": "#2f2f2f",
+                    "leading_diamond": "\ue0c7\u2593",
+                    "template": " {{ if .WSL }}{{ .Icon }} on \ue62a{{ end }} <#61FFCA>\ue0b1</>",
+                    "properties": {
+                        "alpine": "\uf300",
+                        "arch": "\uf303",
+                        "centos": "\uf304",
+                        "debian": "\uf306",
+                        "elementary": "\uf309",
+                        "fedora": "\uf30a",
+                        "gentoo": "\uf30d",
+                        "linux": "\ue712",
+                        "macos": "\ue711",
+                        "manjaro": "\uf312",
+                        "mint": "\uf30f",
+                        "opensuse": "\uf314",
+                        "raspbian": "\uf315",
+                        "ubuntu": "\uf31c",
+                        "windows": "\ue62a"
+                    }
+                },
+                {
+                    "type": "session",
+                    "style": "diamond",
+                    "foreground": "#61FFCA",
+                    "background": "#2f2f2f",
+                    "template": " {{ if ne .Env.POSH_SESSION_DEFAULT_USER .UserName }}{{ .UserName }}{{ end }}<#61FFCA> \ue0b1</>"
+                },
+                {
+                    "type": "root",
+                    "style": "diamond",
+                    "foreground": "#61FFCA",
+                    "background": "#2f2f2f",
+                    "template": " \uf0e7<#61FFCA> \ue0b1</>"
+                },
+                {
+                    "type": "path",
+                    "style": "diamond",
+                    "foreground": "#FFFFDF",
+                    "background": "#2f2f2f",
+                    "template": "<#61FFCA> \ue5ff </>{{ .Path }} ",
+                    "properties": {
+                        "folder_icon": "<#B5B2C2>\ue5fe </>",
+                        "folder_separator_icon": "<#61FFCA>\ue0b1 </>",
+                        "home_icon": " \uf015 ",
+                        "style": "agnoster_short"
+                    }
+                },
+                {
+                    "type": "git",
+                    "style": "diamond",
+                    "foreground": "#61FFCA",
+                    "foreground_templates": [
+                        "{{ if or (.Working.Changed) (.Staging.Changed) }}#61FFCA{{ end }}",
+                        "{{ if gt .Ahead 0 }}#DFAF87{{ end }}",
+                        "{{ if gt .Behind 0 }}#8A4FFF{{ end }}"
+                    ],
+                    "background": "#2f2f2f",
+                    "template": "<#61FFCA>\ue0b1 </>{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }}<#E74856> \uf044 {{ .Working.String }}</>{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#DFAF87> \uf046 {{ .Staging.String }}</>{{ end }}{{ if gt .StashCount 0 }} \ueb4b {{ .StashCount }}{{ end }} ",
+                    "properties": {
+                        "fetch_stash_count": true,
+                        "fetch_status": true,
+                        "fetch_upstream_icon": true
+                    }
+                },
+                {
+                    "type": "text",
+                    "style": "diamond",
+                    "foreground": "#FFFFDF",
+                    "background": "#2f2f2f",
+                    "trailing_diamond": "\ue0b0"
+                }
+            ],
+            "newline": true
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "type": "text",
+                    "style": "plain",
+                    "foreground": "#61FFCA",
+                    "template": " ❯ "
+                }
+            ]
+        }
+    ]
+}
